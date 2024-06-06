@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm vitest"
+    "test": "pnpm vitest",
+    "format":"pnpm @biomejs/biome format --write ./src",
+    "lint":"pnpm @biomejs/biome lint --write ./src",
+    "check":"pnpm @biomejs/biome check --write ./src"
   },
   "keywords": [],
   "author": "",
