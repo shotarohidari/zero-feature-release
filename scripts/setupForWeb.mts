@@ -23,7 +23,8 @@ await writeFile(
 // reactのindex.tsx
 await writeFile(
   "src/index.tsx",
-  `import React, { createRoot } from "react-dom/client"
+  `import React from "react"
+import { createRoot } from "react-dom/client"
 import { App } from "./App"
 
 const app = document.getElementById("app")
