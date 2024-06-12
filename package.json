@@ -7,7 +7,8 @@
     "test": "pnpm vitest",
     "format": "pnpm @biomejs/biome format --write ./src",
     "lint": "pnpm @biomejs/biome lint --write ./src",
-    "check": "pnpm @biomejs/biome check --write ./src"
+    "check": "pnpm @biomejs/biome check --write ./src",
+    "setup:web": "pnpm tsx scripts/setupForWeb.mts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "lefthook": "^1.6.15",
     "tsx": "^4.14.0",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "vitest": "^1.6.0",
+    "zx": "^8.1.2"
   }
 }
