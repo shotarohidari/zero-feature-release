@@ -2,7 +2,7 @@ import { $, fs as $Fs } from "zx"
 import { writeFile, readFile } from "node:fs/promises"
 
 // dependencies
-await $`pnpm install react react-dom @remix-run/node @remix-run/react @remix-run/serve isbot@4`
+await $`pnpm install react@rc react-dom@rc @remix-run/node @remix-run/react @remix-run/serve isbot@4`
 // dev dependencies
 await $`pnpm install -D vite @remix-run/dev @types/react @types/react-dom`
 
@@ -24,6 +24,7 @@ await $Fs.outputFile(
   `<!DOCTYPE html>
 <html lang="ja">
   <head>
+    <meta charset="utf8"/>
     <title>My Cool App!</title>
   </head>
   <body>
@@ -131,13 +132,29 @@ export default function Index() {
 const packageJson = (await import("../package.json")).default
 const newPackageInfo = {
   ...packageJson,
+  devDependencies: {
+    ...packageJson.devDependencies,
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
+  },
   scripts: { ...packageJson.scripts, dev: "pnpm remix vite:dev" },
+  overrides: {
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
+  },
 }
+
+await writeFile("package.json", JSON.stringify(newPackageInfo, null, 2))
+// package.jsonを更新した上でインストールし直す
+await $`pnpm install`
 
 const tsconfigString = await readFile("tsconfig.json", "utf-8")
 
-await writeFile("package.json", JSON.stringify(newPackageInfo, null, 2))
 await writeFile(
   "tsconfig.json",
   tsconfigString.replace(/\/\/ "jsx": "(.+)"/, '"jsx": "react"')
 )
+
+// commit
+await $`git add .`
+await $`git commit -m "chore(deps): setup for web."`
