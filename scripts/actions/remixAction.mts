@@ -4,7 +4,7 @@ import { writeFile, readFile } from "node:fs/promises"
 export async function setUpRemixAction(option?: { react19Enabled: boolean }) {
   const react19Enabled = option?.react19Enabled || false
   // dependencies
-  await $`pnpm install react@rc react-dom@rc @remix-run/node @remix-run/react @remix-run/serve isbot@4`
+  await $`pnpm install react react-dom @remix-run/node @remix-run/react @remix-run/serve isbot@4`
   // dev dependencies
   await $`pnpm install -D vite @remix-run/dev @types/react @types/react-dom`
 
