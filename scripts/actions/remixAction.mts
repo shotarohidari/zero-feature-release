@@ -2,7 +2,7 @@ import { $, fs as $Fs } from "zx"
 import { writeFile, readFile } from "node:fs/promises"
 
 export async function setUpRemixAction(option?: { react19Enabled: boolean }) {
-  const react19Enabled = option?.react19Enabled || false
+  const react19Enabled = option?.react19Enabled
   // dependencies
   await $`pnpm install react react-dom @remix-run/node @remix-run/react @remix-run/serve isbot@4`
   // dev dependencies
@@ -15,7 +15,7 @@ export async function setUpRemixAction(option?: { react19Enabled: boolean }) {
     import { defineConfig } from "vite";
     
     export default defineConfig({
-      plugins: [remix()],
+      plugins: [remix({ssr:true})],
     });
     `
   )
