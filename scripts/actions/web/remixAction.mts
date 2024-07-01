@@ -131,7 +131,7 @@ export async function setUpRemixAction(option?: { react19Enabled: boolean }) {
     }`
   )
 
-  const packageJson = (await import("../../package.json")).default
+  const packageJson = (await import("../../../package.json")).default
 
   const addtionalDepsInfo = react19Enabled
     ? {

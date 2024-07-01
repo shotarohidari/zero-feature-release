@@ -35,7 +35,7 @@ export async function setUpVanilaAction() {
     `
   )
 
-  const packageJson = (await import("../../package.json")).default
+  const packageJson = (await import("../../../package.json")).default
 
   const newPackageInfo = {
     ...packageJson,
