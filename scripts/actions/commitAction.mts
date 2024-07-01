@@ -1,8 +1,8 @@
 import { $ } from "zx"
 
-type CommmitMessage<Message extends string = string> = `chore:(deps) ${Message}`
+type CommitMessage<Message extends string = string> = `chore:(deps) ${Message}`
 // commit
-export async function commitAction({ message }: { message: CommmitMessage }) {
+export async function commitAction({ message }: { message: CommitMessage }) {
   await $`git add .`
   await $`git commit -m "${message}"`
 }
