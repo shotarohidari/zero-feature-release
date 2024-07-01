@@ -9,6 +9,7 @@
     "lint": "pnpm @biomejs/biome lint --write ./src",
     "check": "pnpm @biomejs/biome check --write ./src",
     "setup:react": "pnpm tsx scripts/setupReact.mts",
+    "setup:vanila": "pnpm tsx scripts/setupVanila.mts",
     "postinstall":"lefthook install"
   },
   "keywords": [],
