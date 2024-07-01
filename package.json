@@ -8,7 +8,7 @@
     "format": "pnpm @biomejs/biome format --write ./src",
     "lint": "pnpm @biomejs/biome lint --write ./src",
     "check": "pnpm @biomejs/biome check --write ./src",
-    "setup:web": "pnpm tsx scripts/setupForWeb.mts",
+    "setup:react": "pnpm tsx scripts/setupReact.mts",
     "postinstall":"lefthook install"
   },
   "keywords": [],
