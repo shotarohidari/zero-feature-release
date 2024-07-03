@@ -2,7 +2,7 @@ pre-commit:
   commands:
     test:
       glob: "test/*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      run: pnpm run vitest
+      run: pnpm run test
     check:
       glob: "{src,app,scripts}/*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files} && git update-index --again

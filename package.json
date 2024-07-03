@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm vitest",
+    "test": "pnpm vitest run",
+    "test:watch": "pnpm vitest",
     "format": "pnpm @biomejs/biome format --write ./src",
     "lint": "pnpm @biomejs/biome lint --write ./src",
     "check": "pnpm @biomejs/biome check --write ./src",
     "setup:react": "pnpm tsx scripts/setupReact.mts",
     "setup:vanila": "pnpm tsx scripts/setupVanila.mts",
-    "postinstall":"lefthook install"
+    "postinstall": "lefthook install"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,7 @@
     "@biomejs/biome": "1.8.3",
     "lefthook": "^1.6.15",
     "tsx": "^4.14.0",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.3",
     "vitest": "^1.6.0",
     "zx": "^8.1.2"
   },
